@@ -11,6 +11,8 @@ const shops: Shop[] = [
     { id: 444, name: "Sylvester's Shoes", rating: 3.8 },
     { id: 555, name: "Teddy's Tunes", rating: 4.7 }
 ];
+let nextId: number = 666;
+
 
 //Query ?minRating=4.0
 shopRoutes.get("/", function(req, res){
@@ -28,6 +30,11 @@ shopRoutes.get("/", function(req, res){
         res.json(shops);
     }
 });
+
+shopRoutes.post("/", function(req, res){
+    let newShop: Shop = req.body;
+})
+
 
 shopRoutes.get("/:id", function(req, res){
     // req.params.id shops[i].id
