@@ -1,9 +1,8 @@
-interface Movie {
-    id: number;
-    title: string;
-    year: number;
-    animated: boolean;
-}
+import express from 'express';
+import Movie from '../models/Movie'
+const movieRoutes = express.Router();
+
+
 
 let moviesArray: Movie[] =[
     {id: 1, title: "Jingle All The Way", year:1996, animated: false},
@@ -13,4 +12,8 @@ let moviesArray: Movie[] =[
     {id: 5, title: "Home Alone", year:1990, animated: false},
 ];
 
-export default Movie;
+movieRoutes.get("/", (req, res)=>{ 
+   res.json(moviesArray)
+})
+
+export default movieRoutes;
